@@ -24,9 +24,9 @@ from config import configs
 #         x = x.permute(0, 2, 1, 3, 4)  # (B, 24, 4, 40, 40)
 #         return x
 
-class SimVP(nn.Module):
+class CNN(nn.Module):
     def __init__(self, configs):
-        super(SimVP, self).__init__()
+        super(CNN, self).__init__()
         self.configs = configs
         self.conv_block = nn.Sequential(
             nn.Conv2d(in_channels=4, out_channels=32, kernel_size=3, padding=1),
