@@ -2,7 +2,7 @@
 
 Temporal downscaling is one of the most challenging topics in meteorological data processing research. Traditional methods often face problems such as high computational costs and poor generalization capabilities. Frame interpolation methods based on deep learning have provided new ideas for the time downscaling of meteorological data. In this paper, a deep neural network for time downscaling of multivariate meteorological data is designed. It constructs data frames by independently estimating the kernel weights and offset vectors for each target pixel among different meteorological variables and dynamically fusing multivariate information. It generates output frames under the guidance of the feature space. Compared with other methods, the proposed model can handle a wide range of complex meteorological movements. The experimental results show that the proposed method has good performance, robustness, efficiency, scalability, and transferability in the downscaling of multivariate meteorological fields.
 
-# TDNN
+# PD-WPN
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
