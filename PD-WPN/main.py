@@ -293,20 +293,22 @@ if __name__ == '__main__':
     test_y = data_y[8406:]
 
     dataset_train = dataset_package(train_x=train_x, train_y=train_y)
-    dataset_test = dataset_package(train_x=vaild_x, train_y=vaild_y)
-    del train_x, train_y, vaild_x, vaild_y
+    dataset_vaild = dataset_package(train_x=vaild_x, train_y=vaild_y)
+    dataset_test = dataset_package(train_x=test_x, train_y=test_y)
+    del train_x, train_y, vaild_x, vaild_y, test_x, test_y
     print('Dataset_train Shape:\n', dataset_train.GetDataShape())
+    print('Dataset_vaild Shape:\n', dataset_vaild.GetDataShape())
     print('Dataset_test Shape:\n', dataset_test.GetDataShape())
+
 
     trainer = Trainer(configs)
     trainer.save_configs('config.pkl')
-    trainer.train(dataset_train, dataset_test, 'checkpoint')
+    trainer.train(dataset_train, dataset_vaild, 'checkpoint')
 
-    #########################################################################################################################################
-
+    # TEST
     device = configs.device
     model = SpaceTimeTransformer(configs).to(device)
-    net = torch.load('checkpoint_46.89668655395508.chk')
+    net = torch.load('checkpoint_pdwpn.chk')
     model.load_state_dict(net['net'])
     model.eval()
     
