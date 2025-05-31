@@ -4,10 +4,7 @@ To improve the medium and short-term prediction accuracy of the three-dimensiona
 
 # PD-WPN
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
-
-TDNN is a deep neural network model based on "High Freedom Dynamic Collaboration of Flows", which can handle the task of downscaling multivariate meteorological data. Open source data includes neural networks, testing frameworks, sample input data, and corresponding expected outputs.
 
 - [System Requirements](#system-requirements)
 - [Installation Guide](#installation-guide)
@@ -17,7 +14,7 @@ TDNN is a deep neural network model based on "High Freedom Dynamic Collaboration
 
 # System Requirements
 ## Hardware requirements
-`TDNN` requires a standard computer with enough RAM to support in-memory operations and a high-performance GPU to support fast operations on high-dimensional data.
+`PD-WPN` requires a standard computer with enough RAM to support in-memory operations and a high-performance GPU to support fast operations on high-dimensional data.
 
 ## Software requirements
 ### OS Requirements
@@ -52,11 +49,9 @@ xarray==2022.11.0
 
 Due to the large size of the data and weight files, we host them on other data platforms, please download the relevant data from the link below.
 
-Input data：[https://mega.nz/file/jIEAzAhI#_PWOKOwGBvpAF_yOpYe7uksy8LOmnZta6f2I55kk5fA](https://mega.nz/file/coYRWS5Z#pumyUUJRKGAVGAvtaT6e-grE9-sSHHxzBKBKrlYHTSA)
+Input data：[https://drive.google.com/drive/folders/1UL9s_8Hw5OosQpq7dbhSltL0VkQX3rRC?usp=drive_link](https://drive.google.com/drive/folders/1UL9s_8Hw5OosQpq7dbhSltL0VkQX3rRC?usp=drive_link)
 
-Output data：[https://mega.nz/file/fRVm1T7S#SWHCbu2tkFpME3Y-Eh7LWz15aVV4yI-4U-ZAqi_QpdA](https://mega.nz/file/50YVgbpZ#vkBv0853QdyRdP7bFhBWe_0rT6B2iWbivAA7h1fkmBM)
-
-Weight data：[https://mega.nz/file/2cdBULiB#boGkh154f_97hbpbFIzYHl7j7iVLh_93gAeNH46L0EQ](https://mega.nz/file/584ChbAD#G48qGbpOSFxT8ZtUlbbkQAyJmxnH9BdtDVaY9XxAgnA)
+Weight data：[https://drive.google.com/drive/folders/145mJluB1TqjFuxsfgfFWrG6sg94W4FmY?usp=drive_link](https://drive.google.com/drive/folders/145mJluB1TqjFuxsfgfFWrG6sg94W4FmY?usp=drive_link)
 
 Put the downloaded data into the specified folder, execute the main.py run and generate the resulting data. evaluate.py provides the functions necessary for quantitative evaluation of the data.
 
