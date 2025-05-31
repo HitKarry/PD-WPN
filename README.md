@@ -69,4 +69,4 @@ Execute evaluation.py in the model folder to complete the evaluation of the pred
 
 # License
 
-This project is covered under the **Apache 2.0 License**.
+This project is covered under the **MIT License**.
