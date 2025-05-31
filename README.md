@@ -62,7 +62,9 @@ Execute utils/time_process.py to generate the time series information correspond
 
 Execute PD-WPN/train.py to train the PD-WPN model;
 
-Execute main.py in any model folder to perform inference and use evaluation.py in the model folder to complete the evaluation of the prediction results.
+Execute main.py in any model folder to perform inference;
+
+Execute evaluation.py in the model folder to complete the evaluation of the prediction results.
 ```
 
 # License
