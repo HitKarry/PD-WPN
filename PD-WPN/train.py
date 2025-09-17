@@ -5,6 +5,8 @@ from transformer import SpaceTimeTransformer
 import torch
 import torch.nn as nn
 from config import configs
+from regularizer import *
+from constrain_moments import K2M
 from torch.utils.data import DataLoader
 import pickle
 import math
@@ -61,6 +63,7 @@ class Trainer:
         factor = math.sqrt(configs.d_model*configs.warmup)*0.0008
         self.opt = NoamOpt(configs.d_model, factor, warmup=configs.warmup, optimizer=adam)
         self.z500, self.t850, self.t2m, self.new = 'z500', 't850', 't2m', 'new'
+        self.epoch = 0
 
 
     def Angle_loss(self, batch_y, pred_y):
@@ -147,6 +150,9 @@ class Trainer:
         self.opt.optimizer.zero_grad()
         loss_10,loss_100,mae_loss_10, direction_loss10, mae_loss_100,direction_loss100, ssim_loss10, ssim_loss100 = self.compute_loss(sst_pred, sst_true.float().to(self.device))
         loss = self.awl(mae_loss_10, direction_loss10, mae_loss_100, direction_loss100, ssim_loss10, ssim_loss100)
+        if self.epoch<50:
+            mom_loss = moment_regularizer(self.network, K2M_class=K2M, q=6, lamb=1e-3, target_scale=1.0)
+            loss = loss + mom_loss
         loss.backward()
         if configs.gradient_clipping:
             nn.utils.clip_grad_norm_(self.network.parameters(), configs.clipping_threshold)
@@ -209,6 +215,7 @@ class Trainer:
             loss_z500_eval, loss_t850_eval, loss_t2m_eval, loss_new_eval = self.infer(dataset=dataset_eval, dataloader=dataloader_eval)
             loss_eval = loss_z500_eval + loss_t850_eval + loss_t2m_eval + loss_new_eval
             print('epoch eval loss: {:.2f}, {:.2f}, {:.2f}, {:.2f}, {:.2f}'.format(loss_z500_eval, loss_t850_eval, loss_t2m_eval, loss_new_eval, loss_eval))
+            self.epoch = self.epoch + 1
             if loss_eval >= best:
                 count += 1
                 print('eval loss is not reduced for {} epoch'.format(count))
