@@ -7,7 +7,7 @@ import torch.nn as nn
 from config import configs
 from torch.utils.data import DataLoader
 from regularizer import *
-from your_k2m_file import K2M
+from constrain_moments import K2M
 import pickle
 import math
 import datetime
@@ -52,4 +52,5 @@ if __name__ == '__main__':
     
     np.savez('result.npz', pred=pred.cpu(), target=label.cpu())
     
+
 
