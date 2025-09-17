@@ -60,7 +60,7 @@ class Trainer:
         torch.manual_seed(5)
         self.network = SpaceTimeTransformer(configs).to(configs.device)
         self.awl = AutomaticWeightedLoss(6)
-        adam = torch.optim.Adam([{'params': self.network.parameters()}, {'params': self.awl.parameters()}], lr=0, weight_decay=configs.weight_decay)
+        adam = torch.optim.Adam([{'params': self.network.parameters()}, {'params': self.awl.parameters()}], lr=configs.lr, weight_decay=configs.weight_decay)
         factor = math.sqrt(configs.d_model*configs.warmup)*0.0008
         self.opt = NoamOpt(configs.d_model, factor, warmup=configs.warmup, optimizer=adam)
         self.z500, self.t850, self.t2m, self.new = 'z500', 't850', 't2m', 'new'
