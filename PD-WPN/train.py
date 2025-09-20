@@ -42,13 +42,12 @@ class AutomaticWeightedLoss(nn.Module):
     def __init__(self, num=6):
         super(AutomaticWeightedLoss, self).__init__()
         params = torch.ones(num, requires_grad=True)
-        self.params = torch.nn.Parameter(params)  # parameters的封装使得变量可以容易访问到
+        self.params = torch.nn.Parameter(params) 
 
     def forward(self, *x):
         loss_sum = 0
         for i, loss in enumerate(x):
             loss_sum += torch.exp(-self.params[i]) * loss + self.params[i]
-        # +1 avoids the problem of log 0. The log sigma part has little impact on the overall loss
         return loss_sum
 
 class Trainer:
@@ -152,7 +151,7 @@ class Trainer:
         loss_10,loss_100,mae_loss_10, direction_loss10, mae_loss_100,direction_loss100, ssim_loss10, ssim_loss100 = self.compute_loss(sst_pred, sst_true.float().to(self.device))
         loss = self.awl(mae_loss_10, direction_loss10, mae_loss_100, direction_loss100, ssim_loss10, ssim_loss100)
         if self.epoch<self.reg_epoch:
-            mom_loss = moment_regularizer(self.network, K2M_class=K2M, q=2, lamb=1e-3, target_scale=1.0)
+            mom_loss = moment_regularizer(self.network, K2M_class=K2M, q=2, lamb=1e-3, target_scale=1.0) + gradient_first_order_regularizer(model, K2M_class=K2M, lamb=1e-3, target_scale=1.0, suppress_second=True)
             loss = loss + mom_loss
         loss.backward()
         if configs.gradient_clipping:
