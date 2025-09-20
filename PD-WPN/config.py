@@ -21,6 +21,7 @@ configs.patience = 30
 configs.reg_epoch = 50
 configs.early_stopping = True
 configs.gradient_clipping = False
+configs.suppress_second = False
 configs.clipping_threshold = 1.
 
 # lr warmup
