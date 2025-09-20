@@ -152,7 +152,7 @@ class Trainer:
         loss_10,loss_100,mae_loss_10, direction_loss10, mae_loss_100,direction_loss100, ssim_loss10, ssim_loss100 = self.compute_loss(sst_pred, sst_true.float().to(self.device))
         loss = self.awl(mae_loss_10, direction_loss10, mae_loss_100, direction_loss100, ssim_loss10, ssim_loss100)
         if self.epoch<self.reg_epoch:
-            mom_loss = moment_regularizer(self.network, K2M_class=K2M, q=6, lamb=1e-3, target_scale=1.0)
+            mom_loss = moment_regularizer(self.network, K2M_class=K2M, q=2, lamb=1e-3, target_scale=1.0)
             loss = loss + mom_loss
         loss.backward()
         if configs.gradient_clipping:
