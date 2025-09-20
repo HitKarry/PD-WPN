@@ -22,8 +22,8 @@ configs.reg_epoch = 50
 configs.early_stopping = True
 configs.gradient_clipping = False
 configs.suppress_second = False
-configs.mom_weight = 1e-2
-configs.gradient_weight = 1e-2
+configs.mom_weight = 1e-3
+configs.gradient_weight = 1e-3
 configs.clipping_threshold = 1.
 
 # lr warmup
