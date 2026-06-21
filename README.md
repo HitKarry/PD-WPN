@@ -23,7 +23,7 @@ This package is supported for *Windows* and *Linux*. The package has been tested
 + Linux: Ubuntu 16.04
 
 ### Python Dependencies
-`TDNN` mainly depends on the Python scientific stack.
+`PD-WPN` mainly depends on the Python scientific stack.
 
 ```
 einops==0.8.0
