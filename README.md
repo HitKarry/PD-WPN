@@ -1,6 +1,6 @@
-# Official open-source code of "Physics-Informed Neural Network Based on Evolutionary Feature Uncertainty Fusion for Wind Speed Spatiotemporal Field Prediction"
+# Official open-source code of "Physics-guided neural network integrating uncertainty evolution for spatiotemporal wind speed prediction"
 
-To improve the medium and short-term prediction accuracy of the three-dimensional spatiotemporal field of wind speed while taking into account physical consistency and model efficiency, this project proposes a neural network architecture that combines the fusion of evolutionary feature uncertainty and physical information modeling, named PD-WPN. PD-WPN has achieved high-precision joint prediction and three-dimensional reconstruction of wind speed fields at five heights ranging from 10m to 100m. The prediction accuracy of wind direction within a 12-hour lead time is higher than that of the internationally leading ECMWF-HRES model. The prediction errors of wind speed at heights of 10 meters and 100 meters within a 24-hour lead time are significantly lower than other SOTA models. The migration experiments and robustness analyses show that this method has good regional generalization ability and time robustness. PD-WPN achieves a good balance between performance and efficiency,its performance in multi-height field modeling, spatial structure consistency and wind direction prediction proves that it has significant application potential in scenarios such as wind power dispatching, wind energy assessment and intelligent control.
+Accurate short-term wind forecasts are important for wind power operation, grid scheduling, and intelligent energy control, but wind speed changes are difficult to predict because they vary across space, time, and height. Here we show that a physics-guided neural network improves the prediction of three-dimensional wind speed fields by learning both data patterns and the physical consistency of wind evolution. The model combines information across time, space, and height, and uses physical constraints to guide the learning of wind speed, wind direction, and spatial structure. Tests show that the model predicts wind speed more accurately than current machine-learning methods within a twenty-four-hour forecast period at both ten-metre and one-hundred-metre heights. Compared with a leading numerical weather forecasting system, it gives more accurate wind speed forecasts within five hours and more accurate wind direction forecasts within twelve hours.  The model also exhibits strong regional generalization and temporal robustness, providing support for practical wind power applications.
 
 # PD-WPN
 
@@ -49,9 +49,9 @@ xarray==2022.11.0
 
 Due to the large size of the data and weight files, we host them on other data platforms, please download the relevant data from the link below.
 
-Input data：[https://drive.google.com/drive/folders/1UL9s_8Hw5OosQpq7dbhSltL0VkQX3rRC?usp=drive_link](https://drive.google.com/drive/folders/1UL9s_8Hw5OosQpq7dbhSltL0VkQX3rRC?usp=drive_link)
+Input data：[https://drive.google.com/drive/folders/1UL9s_8Hw5OosQpq7dbhSltL0VkQX3rRC1ULrRC?usp=drive_link](https://drive.google.com/drive/folders/1UL9s_8Hw5OosQpq7dbhSltL0VkQX3rRC1ULrRC?usp=drive_link)
 
-Weight data：[https://drive.google.com/drive/folders/145mJluB1TqjFuxsfgfFWrG6sg94W4FmY?usp=drive_link](https://drive.google.com/drive/folders/145mJluB1TqjFuxsfgfFWrG6sg94W4FmY?usp=drive_link)
+Weight data：[https://drive.google.com/drive/folders/145mJluB1TqjFuxsfgfFWrG6sg94W4FmY145mFmY?usp=drive_link](https://drive.google.com/drive/folders/145mJluB1TqjFuxsfgfFWrG6sg94W4FmY145mFmY?usp=drive_link)
 
 ```
 Put the downloaded data into the designated folder:
